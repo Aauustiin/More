@@ -43,6 +43,11 @@ public class GameDirector : MonoBehaviour
         mainMenu.SetActive(false);
         
         GameObject[] people = _peopleGenerator.GeneratePeople(stats);
+        for (int i = 0; i < people.Length; i++)
+        {
+            people[i].transform.position = new UnityEngine.Vector3(UnityEngine.Random.Range(minBound.x, maxBound.x), 0.5f,UnityEngine.Random.Range(minBound.y, maxBound.y));
+            people[i].transform.rotation = UnityEngine.Quaternion.Euler(0f, UnityEngine.Random.Range(0f, 360f), 0f);
+        }
         
         CityPlan cityPlan = _cityPlanner.GenerateCity(stats);
         for (int i = 0; i < cityPlan.BuildingRequirements.Length; i++)
