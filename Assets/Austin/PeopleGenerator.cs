@@ -3,32 +3,27 @@ using UnityEngine;
 
 public class PeopleGenerator : MonoBehaviour, IPeopleGenerator
 {
-    private int _population = 10;
+    private int _population = 100;
     [SerializeField] private GameObject personPrefab;
     [SerializeField] private Shader defaultShader;
 
     public GameObject[] GeneratePeople(CityStats stats)
     {
+        _population = Mathf.RoundToInt(_population * stats.Urbanism);
         GameObject[] people = new GameObject[_population];
-        if (stats.Urbanism > 0.5)
-        {
-            for (int i = 0; i < (_population * stats.Urbanism); i++)
-            {
+        for (int i = 0; i < (_population); i++) {
                 people[i] = Instantiate(personPrefab, transform);
-            }
         }
         GenerateCharacterColours(stats, people);
         return people;
-        
     }
 
     public void GenerateCharacterColours(CityStats stats, GameObject[] personObjects)
     {
-        List<Color> characterColours = new List<Color> {};
         Color nativeColour = Random.ColorHSV();
         for (int i = 0; i < _population; i++)
         {
-            if (stats.Globalism < Random.value)
+            if (stats.Globalism > Random.value)
             {
                 MeshRenderer[] meshes = personObjects[i].GetComponentsInChildren<MeshRenderer>();
                 Color color = Random.ColorHSV();
