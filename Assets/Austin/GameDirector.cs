@@ -4,6 +4,8 @@ using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = System.Numerics.Vector3;
 
 public class GameDirector : MonoBehaviour
 {
@@ -18,6 +20,9 @@ public class GameDirector : MonoBehaviour
     [SerializeField] private MockCityPlanner _cityPlanner;
     [SerializeField] private BuildingGenerator _buildingGenerator;
     [SerializeField] private PeopleGenerator _peopleGenerator;
+
+    [SerializeField] private Vector2 minBound;
+    [SerializeField] private Vector2 maxBound;
 
     private List<GameObject> _objects;
 
@@ -44,10 +49,13 @@ public class GameDirector : MonoBehaviour
         {
             GameObject buildingPrefab = _buildingGenerator.GenerateBuilding(stats, cityPlan.BuildingRequirements[i].Item2);
             GameObject building = Instantiate(buildingPrefab, cityPlan.BuildingRequirements[i].Item1);
+            building.transform.localScale = new UnityEngine.Vector3(5f, 5f, 5f);
+            building.transform.position = new UnityEngine.Vector3(UnityEngine.Random.Range(minBound.x, maxBound.x), 1f,UnityEngine.Random.Range(minBound.y, maxBound.y));
+            building.transform.rotation = UnityEngine.Quaternion.Euler(0f, UnityEngine.Random.Range(0f, 360f), 0f);
             //building.transform.parent = transform;
-            _objects.Add(building);
+            //_objects.Add(building);
         }
         //GameObject road = Instantiate(cityPlan.Road, transform);
-        //_objects.Add(road);
+        //_objects.Add(road)
     }
 }
