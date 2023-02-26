@@ -9,6 +9,7 @@ public class MockCityPlanner : MonoBehaviour
         buildingRequirements[0] = (transform, BuildingType.Commercial);
         buildingRequirements[1] = (transform, BuildingType.Residential);
         buildingRequirements[2] = (transform, BuildingType.Industrial);
+        cityPlan.BuildingRequirements = buildingRequirements;
         return cityPlan;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class GameDirector : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class GameDirector : MonoBehaviour
         {
             GameObject buildingPrefab = _buildingGenerator.GenerateBuilding(stats, cityPlan.BuildingRequirements[i].Item2);
             GameObject building = Instantiate(buildingPrefab, cityPlan.BuildingRequirements[i].Item1);
-            building.transform.parent = transform;
+            //building.transform.parent = transform;
             _objects.Add(building);
         }
         //GameObject road = Instantiate(cityPlan.Road, transform);

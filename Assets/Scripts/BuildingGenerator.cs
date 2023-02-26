@@ -15,18 +15,18 @@ public class BuildingGenerator : MonoBehaviour, IBuildingGenerator
     [SerializeField] private GameObject[] entertainmentBuildings;
     [SerializeField] private CityStats[] entertainmentBuildingStats;
 
-    void Start()
-    {
-        CityStats stats = new CityStats();
-        stats.Globalism = 0.9f;
-        stats.Urbanism = 0.9f;
-        stats.Statism = 0.9f;
-        stats.Innovation = 0.9f;
-        stats.Markets = 0.9f;
-
-        GameObject building = GenerateBuilding(stats, BuildingType.Industrial);
-        Instantiate(building, transform);
-    }
+    //void Start()
+    //{
+    //    CityStats stats = new CityStats();
+    //    stats.Globalism = 0.9f;
+    //    stats.Urbanism = 0.9f;
+    //    stats.Statism = 0.9f;
+    //    stats.Innovation = 0.9f;
+    //    stats.Markets = 0.9f;
+    //
+    //    GameObject building = GenerateBuilding(stats, BuildingType.Industrial);
+    //    Instantiate(building, transform);
+    //}
     
     public GameObject GenerateBuilding(CityStats stats, BuildingType type)
     {
