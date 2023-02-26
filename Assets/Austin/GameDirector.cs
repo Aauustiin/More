@@ -14,8 +14,8 @@ public class GameDirector : MonoBehaviour
     
     [SerializeField] private GameObject mainMenu;
 
-    [SerializeField] private ICityPlanner _cityPlanner;
-    [SerializeField] private IBuildingGenerator _buildingGenerator;
+    [SerializeField] private MockCityPlanner _cityPlanner;
+    [SerializeField] private BuildingGenerator _buildingGenerator;
     [SerializeField] private PeopleGenerator _peopleGenerator;
 
     private List<GameObject> _objects;
@@ -38,17 +38,15 @@ public class GameDirector : MonoBehaviour
         
         GameObject[] people = _peopleGenerator.GeneratePeople(stats);
         
-        //CityPlan cityPlan = _cityPlanner.GenerateCity(stats);
-        //for (int i = 0; i < cityPlan.BuildingRequirements.Length; i++)
-        //{
-        //    GameObject buildingPrefab = _buildingGenerator.GenerateBuilding(stats, cityPlan.BuildingRequirements[i].Item2);
-        //    GameObject building = Instantiate(buildingPrefab, cityPlan.BuildingRequirements[i].Item1);
-        //    building.transform.parent = transform;
-        //    _objects.Add(building);
-        //}
+        CityPlan cityPlan = _cityPlanner.GenerateCity(stats);
+        for (int i = 0; i < cityPlan.BuildingRequirements.Length; i++)
+        {
+            GameObject buildingPrefab = _buildingGenerator.GenerateBuilding(stats, cityPlan.BuildingRequirements[i].Item2);
+            GameObject building = Instantiate(buildingPrefab, cityPlan.BuildingRequirements[i].Item1);
+            building.transform.parent = transform;
+            _objects.Add(building);
+        }
         //GameObject road = Instantiate(cityPlan.Road, transform);
         //_objects.Add(road);
-        
-        //_objects.Add(people);
     }
 }
