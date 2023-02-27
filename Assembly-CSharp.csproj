@@ -44,10 +44,12 @@
      <Compile Include="Assets\Scripts\BuildingType.cs" />
      <Compile Include="Assets\Scripts\IBuildingGenerator.cs" />
      <Compile Include="Assets\Scripts\CityPlan.cs" />
+     <Compile Include="Assets\Vinh\HexGrid.cs" />
      <Compile Include="Assets\Scripts\CityStats.cs" />
      <Compile Include="Assets\Scripts\IPeopleGenerator.cs" />
      <Compile Include="Assets\CityPlanning.cs" />
      <Compile Include="Assets\Vinh\HexRenderer.cs" />
+     <Compile Include="Assets\Vinh\HexType.cs" />
      <Compile Include="Assets\Scripts\ICityPlanner.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.10f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
