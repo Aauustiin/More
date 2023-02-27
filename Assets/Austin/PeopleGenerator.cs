@@ -11,7 +11,7 @@ public class PeopleGenerator : MonoBehaviour, IPeopleGenerator
 
     public GameObject[] GeneratePeople(CityStats stats)
     {
-        _population = Mathf.RoundToInt(_population * stats.Urbanism);
+        _population = 10 + Mathf.RoundToInt(_population * stats.Urbanism);
         GameObject[] people = new GameObject[_population];
         for (int i = 0; i < (_population); i++) {
                 people[i] = Instantiate(personPrefab, transform);

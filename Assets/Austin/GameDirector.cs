@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 
 public class GameDirector : MonoBehaviour
@@ -14,6 +15,7 @@ public class GameDirector : MonoBehaviour
     [SerializeField] private Slider marketsSlider;
     
     [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject player;
 
     [SerializeField] private MockCityPlanner cityPlanner;
     [SerializeField] private BuildingGenerator buildingGenerator;
@@ -27,6 +29,7 @@ public class GameDirector : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     
     private List<GameObject> _objects;
+    private string[] thoughts;
 
     public void Start()
     {
@@ -43,16 +46,13 @@ public class GameDirector : MonoBehaviour
         stats.Markets = marketsSlider.value;
 
         mainMenu.SetActive(false);
-        
+
         GameObject[] people = peopleGenerator.GeneratePeople(stats);
-        string[] thoughts = speechGenerator.GenerateThoughts(stats, people.Length);
+        thoughts = speechGenerator.GenerateThoughts(stats, people.Length);
         for (int i = 0; i < people.Length; i++)
         {
             people[i].transform.position = new UnityEngine.Vector3(UnityEngine.Random.Range(minBound.x, maxBound.x), 0.5f,UnityEngine.Random.Range(minBound.y, maxBound.y));
             people[i].transform.rotation = UnityEngine.Quaternion.Euler(0f, UnityEngine.Random.Range(0f, 360f), 0f);
-            GameObject thought = Instantiate(thoughtBubble, people[i].transform);
-            thought.transform.GetChild(0).GetChild(0).position = mainCamera.WorldToScreenPoint(people[i].transform.position + new UnityEngine.Vector3(0, 0f, 1));
-            thought.GetComponentInChildren<TextMeshProUGUI>().text = thoughts[i];
         }
 
         CityPlan cityPlan = cityPlanner.GenerateCity(stats);
@@ -68,16 +68,24 @@ public class GameDirector : MonoBehaviour
         }
         //GameObject road = Instantiate(cityPlan.Road, transform);
         //_objects.Add(road)
+        player.SetActive(true);
+        mainCamera.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        Camera cam = player.GetComponentInChildren<Camera>();
+        Debug.DrawLine(cam.transform.position, player.transform.forward);
         
-        if (Physics.Raycast(ray, out RaycastHit hit)) {
-            Transform objectHit = hit.transform;
-            
-            // Do something with the object that was hit by the raycast.
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, 10000000f)) {
+            Debug.Log("Hit");
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                Debug.Log("Hit player");
+                GameObject thought = Instantiate(thoughtBubble, hit.collider.gameObject.transform);
+                thought.transform.GetChild(0).GetChild(0).position = cam.WorldToScreenPoint(hit.collider.gameObject.transform.position + new UnityEngine.Vector3(0, -0.5f, 0));
+                thought.GetComponentInChildren<TextMeshProUGUI>().text = thoughts[Random.Range(0, thoughts.Length)];
+            }
         }
     }
 }
