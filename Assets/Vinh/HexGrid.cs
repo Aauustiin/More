@@ -31,7 +31,7 @@ public class HexGrid : MonoBehaviour
         {
             for (int x = 0; x < gridSize.x; x++)
             {
-                GameObject tile = new GameObject($"hex {x},{y}", typeof(HexRenderer));
+                GameObject tile = new GameObject($"Hex {x},{y}", typeof(HexRenderer));
                 HexRenderer hexRenderer = tile.GetComponent<HexRenderer>();
 
                 hexRenderer.outerSize = outerSize;
@@ -39,6 +39,7 @@ public class HexGrid : MonoBehaviour
                 hexRenderer.height = height;
                 hexRenderer.material=(material);
                 hexRenderer.DrawMesh();
+                tile.transform.SetParent(transform, false);
             }
         }
     }
@@ -57,14 +58,23 @@ public class HexGrid : MonoBehaviour
         float offset;
         float size = outerSize;
         
+        //shouldOffset = (row % 2) == 0;
+        //width = Mathf.Sqrt(3) * size;
+        //height = 2f * size;
+        //horizontalDistance = width;
+        //verticalDistance = height * (3f / 4f);
+        //offset = (shouldOffset) ? width / 2 : 0;
+        //xPosition = (column * (horizontalDistance)) + offset;
+        //yPosition = (row * verticalDistance);
+        //return new Vector3(xPosition, 0, -yPosition);
         shouldOffset = (row % 2) == 0;
-        width = Mathf.Sqrt(3) * size;
-        height = 2f * size;
-        horizontalDistance = width;
-        verticalDistance = height * (3f / 4f);
-        offset = (shouldOffset) ? width / 2 : 0;
-        xPosition = (column * (horizontalDistance)) + offset;
-        yPosition = (row * verticalDistance);
+        height = Mathf.Sqrt(3) * size;
+        width = 2f * size;
+        horizontalDistance = width* (3f / 4f);;
+        verticalDistance = height;
+        offset = (shouldOffset) ? height / 2 : 0;
+        xPosition = (column * (horizontalDistance));
+        yPosition = (row * verticalDistance) -offset;
         return new Vector3(xPosition, 0, -yPosition);
     }
 }

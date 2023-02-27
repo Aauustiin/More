@@ -63,12 +63,12 @@ public class HexRenderer : MonoBehaviour
 
         for (int point = 0; point < 6; point++)
         {
-            m_faces.Add(CreateFace(innerSize, outerSize, -height / 2f, -height / 2f, point));
+            m_faces.Add(CreateFace(innerSize, outerSize, -height / 2f, -height / 2f, point, true));
         }
 
         for (int point = 0; point < 6; point++)
         {
-            m_faces.Add(CreateFace(outerSize, outerSize, height / 2f, -height / 2f, point));
+            m_faces.Add(CreateFace(outerSize, outerSize, height / 2f, -height / 2f, point, true));
         }
         for (int point = 0; point < 6; point++)
         {
@@ -87,8 +87,8 @@ public class HexRenderer : MonoBehaviour
         bool reverse = false)
     {
         Vector3 PointA = GetPoint(innerRad, heightB, point);
-        Vector3 PointB = GetPoint(innerRad, heightB, (point<5)? point +1 :0);
-        Vector3 PointC = GetPoint(outerRad, heightA, (point<5)? point+1:0);
+        Vector3 PointB = GetPoint(innerRad, heightB, (point<5) ? point +1 :0 );
+        Vector3 PointC = GetPoint(outerRad, heightA, (point<5) ? point +1 :0);
         Vector3 PointD = GetPoint(outerRad, heightA, point);
         List<Vector3> vertices = new List<Vector3>() { PointA, PointB, PointC, PointD };
         List<int> triangles = new List<int>() { 0, 1, 2, 2, 3, 0 };
