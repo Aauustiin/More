@@ -2054,7 +2054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   residentialBuildings:
-  - {fileID: 919132149155446097, guid: ee3f89a5982a9134abd3aede29b7e93e, type: 3}
+  - {fileID: 4563193545650086292, guid: 394cd4a5736af284d8d63df0b2dd4ef0, type: 3}
   residentialBuildingStats:
   - Globalism: 0.5
     Urbanism: 0.5
@@ -2062,7 +2062,7 @@ MonoBehaviour:
     Innovation: 0.5
     Markets: 0.5
   industrialBuildings:
-  - {fileID: 919132149155446097, guid: 5dfd3269fda778e48bc9ebbb32e12393, type: 3}
+  - {fileID: 1891657514780349232, guid: c1cdfc815b5d734409a8b9cf7b2c3d35, type: 3}
   industrialBuildingStats:
   - Globalism: 0
     Urbanism: 0
@@ -2070,8 +2070,8 @@ MonoBehaviour:
     Innovation: 0
     Markets: 0
   commercialBuildings:
-  - {fileID: 919132149155446097, guid: e5ad6bff96b9d344b9aa6ddfc11c3ce3, type: 3}
-  - {fileID: 919132149155446097, guid: f723cdbdbdf20ca47b596e6ec1ea0a8c, type: 3}
+  - {fileID: 8717058290692053451, guid: 555b320d1375280459583637daa93150, type: 3}
+  - {fileID: 3084988763970775573, guid: 4fca1c2dba1ecb34ba76725aa12176b6, type: 3}
   commercialBuildingStats:
   - Globalism: 0.7
     Urbanism: 0.5
@@ -2084,8 +2084,8 @@ MonoBehaviour:
     Innovation: 0.4
     Markets: 0.3
   infrastructureBuildings:
-  - {fileID: 919132149155446097, guid: b21ddee7b16ff6c4eacaaad9d8644009, type: 3}
-  - {fileID: 919132149155446097, guid: dc29e1b144be85746bc0e3127702491c, type: 3}
+  - {fileID: 4444313753217417749, guid: d5d5460e447813f409820a042e591fba, type: 3}
+  - {fileID: 3590356575395848613, guid: fcf2ac7089844fa4ab65ccdc93f06552, type: 3}
   infrastructureBuildingStats:
   - Globalism: 0.2
     Urbanism: 0.8
@@ -2098,7 +2098,7 @@ MonoBehaviour:
     Innovation: 0.5
     Markets: 0.4
   entertainmentBuildings:
-  - {fileID: 919132149155446097, guid: 5dfd3269fda778e48bc9ebbb32e12393, type: 3}
+  - {fileID: 1891657514780349232, guid: c1cdfc815b5d734409a8b9cf7b2c3d35, type: 3}
   entertainmentBuildingStats:
   - Globalism: 0.5
     Urbanism: 0
@@ -2181,14 +2181,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 50, z: 0}
+  m_LocalRotation: {x: 0.56446284, y: 0, z: 0, w: 0.82545847}
+  m_LocalPosition: {x: 0, y: 50, z: -26.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 68.73, y: 0, z: 0}
 --- !u!1 &965717112
 GameObject:
   m_ObjectHideFlags: 0
@@ -4362,6 +4362,114 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1961664256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1961664258}
+  - component: {fileID: 1961664257}
+  m_Layer: 0
+  m_Name: SpeechGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1961664257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961664256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15aa4a4203f7505429babe3991c96953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalismNouns:
+  - 'Multiculturalism '
+  - 'Citizenship '
+  - Diversity
+  - Collaboration
+  - Growth
+  patriotismNouns:
+  - Nationalism
+  - Monarchy
+  - Independence
+  - 'Fish and Chips '
+  - 'The Union Jack '
+  ruralNouns:
+  - Agriculture
+  - Countryside
+  - Villages
+  - Wilderness
+  - 'Fields '
+  urbanismNouns:
+  - Skyscrapers
+  - Gemtrification
+  - Diversity
+  - 'Public transport '
+  - 'Nightlife '
+  libertarianismNouns:
+  - 'Individualism '
+  - 'Decentralisation '
+  - 'Free speech '
+  - 'Limited taxation '
+  - 'Minimal regulation '
+  statismNouns:
+  - 'Nationalism '
+  - 'Centralisation '
+  - 'Dictatorship '
+  - 'Surveillance '
+  - 'Censorship '
+  traditionalismNouns:
+  - Stability
+  - Authority
+  - Heritage
+  - Anti-modernism
+  - 'Folklore '
+  innovationNouns:
+  - Creativity
+  - Improvement
+  - Development
+  - Modernization
+  - 'Experimentation '
+  equalityNouns:
+  - Justice
+  - 'Opportunity '
+  - Anti-discrimination
+  - Gender equality
+  - 'Racial equality '
+  marketsNouns:
+  - Louis Vuitton
+  - Chanel
+  - Gucci
+  - Balenciaga
+  - 'Nike '
+  positiveAdj:
+  - is cool
+  - is certi
+  - 'is great '
+--- !u!4 &1961664258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961664256}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1967403450
 GameObject:
   m_ObjectHideFlags: 0

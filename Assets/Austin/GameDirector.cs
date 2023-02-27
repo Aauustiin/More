@@ -48,14 +48,14 @@ public class GameDirector : MonoBehaviour
             people[i].transform.position = new UnityEngine.Vector3(UnityEngine.Random.Range(minBound.x, maxBound.x), 0.5f,UnityEngine.Random.Range(minBound.y, maxBound.y));
             people[i].transform.rotation = UnityEngine.Quaternion.Euler(0f, UnityEngine.Random.Range(0f, 360f), 0f);
         }
-        
+
         CityPlan cityPlan = _cityPlanner.GenerateCity(stats);
         for (int i = 0; i < cityPlan.BuildingRequirements.Length; i++)
         {
             GameObject buildingPrefab = _buildingGenerator.GenerateBuilding(stats, cityPlan.BuildingRequirements[i].Item2);
             GameObject building = Instantiate(buildingPrefab, cityPlan.BuildingRequirements[i].Item1);
             building.transform.localScale = new UnityEngine.Vector3(5f, 5f, 5f);
-            building.transform.position = new UnityEngine.Vector3(UnityEngine.Random.Range(minBound.x, maxBound.x), 1f,UnityEngine.Random.Range(minBound.y, maxBound.y));
+            building.transform.position = new UnityEngine.Vector3(UnityEngine.Random.Range(minBound.x, maxBound.x), 0.5f,UnityEngine.Random.Range(minBound.y, maxBound.y));
             building.transform.rotation = UnityEngine.Quaternion.Euler(0f, UnityEngine.Random.Range(0f, 360f), 0f);
             //building.transform.parent = transform;
             //_objects.Add(building);
