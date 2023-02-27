@@ -912,6 +912,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269166833}
   m_CullTransparentMesh: 1
+--- !u!1001 &274670289
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_Name
+      value: PlayerCapsule
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
 --- !u!1 &286494385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,6 +1216,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485208176}
   m_CullTransparentMesh: 1
+--- !u!4 &492234723 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+  m_PrefabInstance: {fileID: 274670289}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &498191691
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,23 +2120,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   residentialBuildings:
   - {fileID: 4563193545650086292, guid: 394cd4a5736af284d8d63df0b2dd4ef0, type: 3}
+  - {fileID: 3683908679503242998, guid: 2cce2d0a796179e4aba90fd857f61fa7, type: 3}
+  - {fileID: 5512288626773424834, guid: 07a2496cf6a2db341b4751533b66208a, type: 3}
   residentialBuildingStats:
   - Globalism: 0.5
     Urbanism: 0.5
     Statism: 0.5
     Innovation: 0.5
     Markets: 0.5
+  - Globalism: 0.7
+    Urbanism: 1
+    Statism: 0.5
+    Innovation: 0.8
+    Markets: 0.6
+  - Globalism: 0.6
+    Urbanism: 0.9
+    Statism: 0.5
+    Innovation: 0.7
+    Markets: 0.55
   industrialBuildings:
-  - {fileID: 1891657514780349232, guid: c1cdfc815b5d734409a8b9cf7b2c3d35, type: 3}
+  - {fileID: 8546374851661972980, guid: 60df96873d7129643828b1ab4055fd5e, type: 3}
+  - {fileID: 2071025832854164794, guid: 88987c52a45b57e4bb8784e997409568, type: 3}
+  - {fileID: 8754576257170077663, guid: b568e6467a9fbbf40b4db4dd6e134867, type: 3}
+  - {fileID: 3166436330008745290, guid: 2f274aef4dd6a1f438ee472d4abe8708, type: 3}
+  - {fileID: 3914108317618339722, guid: 875ad11e82ae81740958bfa6f7c6bb9c, type: 3}
+  - {fileID: 8335474023061798979, guid: 322fececa79846846ba247ea2e657458, type: 3}
   industrialBuildingStats:
-  - Globalism: 0
+  - Globalism: 0.4
+    Urbanism: 0.8
+    Statism: 0.5
+    Innovation: 0.6
+    Markets: 0.6
+  - Globalism: 0.3
     Urbanism: 0
-    Statism: 0
-    Innovation: 0
-    Markets: 0
+    Statism: 0.6
+    Innovation: 0.3
+    Markets: 0.5
+  - Globalism: 0.5
+    Urbanism: 0.6
+    Statism: 0.5
+    Innovation: 0.9
+    Markets: 0.5
+  - Globalism: 0.5
+    Urbanism: 0.4
+    Statism: 0.5
+    Innovation: 0.75
+    Markets: 0.75
+  - Globalism: 0.6
+    Urbanism: 0.9
+    Statism: 0.8
+    Innovation: 0.5
+    Markets: 0.6
+  - Globalism: 0
+    Urbanism: 0.2
+    Statism: 0.6
+    Innovation: 0.2
+    Markets: 0.5
   commercialBuildings:
   - {fileID: 8717058290692053451, guid: 555b320d1375280459583637daa93150, type: 3}
   - {fileID: 3084988763970775573, guid: 4fca1c2dba1ecb34ba76725aa12176b6, type: 3}
+  - {fileID: 4804835359523714546, guid: bb94a27f4d6a4ee448b2f3907e40b7ce, type: 3}
   commercialBuildingStats:
   - Globalism: 0.7
     Urbanism: 0.5
@@ -2086,9 +2191,15 @@ MonoBehaviour:
     Statism: 0.7
     Innovation: 0.4
     Markets: 0.3
+  - Globalism: 0.5
+    Urbanism: 0.4
+    Statism: 0.5
+    Innovation: 0.2
+    Markets: 0.7
   infrastructureBuildings:
   - {fileID: 4444313753217417749, guid: d5d5460e447813f409820a042e591fba, type: 3}
   - {fileID: 3590356575395848613, guid: fcf2ac7089844fa4ab65ccdc93f06552, type: 3}
+  - {fileID: 3103238623544022803, guid: d90486cba4253004b8ee30ea4090643f, type: 3}
   infrastructureBuildingStats:
   - Globalism: 0.2
     Urbanism: 0.8
@@ -2100,14 +2211,43 @@ MonoBehaviour:
     Statism: 0.6
     Innovation: 0.5
     Markets: 0.4
+  - Globalism: 1
+    Urbanism: 0.8
+    Statism: 0.5
+    Innovation: 0.65
+    Markets: 0.55
   entertainmentBuildings:
   - {fileID: 1891657514780349232, guid: c1cdfc815b5d734409a8b9cf7b2c3d35, type: 3}
+  - {fileID: 7532584909594793300, guid: 81f300e22df808241aea0b88232775f4, type: 3}
+  - {fileID: 8510737890812791500, guid: 1826652575865944087832ea43fb8ade, type: 3}
+  - {fileID: 8607238023682688190, guid: 914a1294fe6b55d40be3aa6a528f87e1, type: 3}
+  - {fileID: 805221631190332238, guid: c33b1db54f1be014e8ba026fe2dd34cf, type: 3}
   entertainmentBuildingStats:
   - Globalism: 0.5
     Urbanism: 0
     Statism: 0.3
     Innovation: 0.3
     Markets: 0.3
+  - Globalism: 0.4
+    Urbanism: 0.5
+    Statism: 0.6
+    Innovation: 0
+    Markets: 0.3
+  - Globalism: 0.5
+    Urbanism: 0.8
+    Statism: 0.3
+    Innovation: 0.6
+    Markets: 0.8
+  - Globalism: 0.5
+    Urbanism: 0
+    Statism: 0.6
+    Innovation: 0.4
+    Markets: 0.5
+  - Globalism: 0.5
+    Urbanism: 0.7
+    Statism: 0.5
+    Innovation: 0.6
+    Markets: 0.7
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,7 +2265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &963194226
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2803,6 +2943,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355519760}
   m_CullTransparentMesh: 1
+--- !u!1001 &1365384916
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 492234723}
+    m_Modifications:
+    - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430823, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_Name
+      value: MainCamera
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
 --- !u!1 &1425717473
 GameObject:
   m_ObjectHideFlags: 0
