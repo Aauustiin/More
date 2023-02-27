@@ -33,13 +33,15 @@ public class HexGrid : MonoBehaviour
             {
                 GameObject tile = new GameObject($"Hex {x},{y}", typeof(HexRenderer));
                 HexRenderer hexRenderer = tile.GetComponent<HexRenderer>();
+                tile.transform.position = GetPositionForHexFromCoordinate(new Vector2Int(x, y));
 
                 hexRenderer.outerSize = outerSize;
                 hexRenderer.innerSize = innerSize;
                 hexRenderer.height = height;
                 hexRenderer.material=(material);
                 hexRenderer.DrawMesh();
-                tile.transform.SetParent(transform, false);
+                tile.transform.SetParent(transform, true);
+
             }
         }
     }
@@ -67,7 +69,7 @@ public class HexGrid : MonoBehaviour
         //xPosition = (column * (horizontalDistance)) + offset;
         //yPosition = (row * verticalDistance);
         //return new Vector3(xPosition, 0, -yPosition);
-        shouldOffset = (row % 2) == 0;
+        shouldOffset = (column % 2) == 0;
         height = Mathf.Sqrt(3) * size;
         width = 2f * size;
         horizontalDistance = width* (3f / 4f);;
