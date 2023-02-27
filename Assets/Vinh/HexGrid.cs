@@ -13,24 +13,38 @@ public class HexGrid : MonoBehaviour
     public float height = 1f;
     public Material material;
 
+    [Header("HexGen settings")]
+    private HexGen hexgen;
+
+    public int Residential;
+    public int Industrial;
+    public int Commercial;
+    public int Infrastructure;
+    public int Entertainment;
+    public int Greenspace;
+    public int Nothing;
+    
     private void OnEnable()
     {
         LayoutGrid();
     }
-    private void OnValidate()
-    {
-        if (Application.isPlaying)
-        {
-            LayoutGrid();
-        }
-    }
+    //private void OnValidate()
+    //{
+        //if (Application.isPlaying)
+        //{
+        //    LayoutGrid();
+        //}
+    //}
 
     private void LayoutGrid()
     {
+        hexgen.hexlist(Residential, Industrial, Commercial, Infrastructure,
+            Entertainment, Greenspace, Nothing);
         for (int y = 0; y < gridSize.y; y++)
         {
             for (int x = 0; x < gridSize.x; x++)
             {
+                
                 GameObject tile = new GameObject($"Hex {x},{y}", typeof(HexRenderer));
                 HexRenderer hexRenderer = tile.GetComponent<HexRenderer>();
                 tile.transform.position = GetPositionForHexFromCoordinate(new Vector2Int(x, y));
@@ -38,8 +52,9 @@ public class HexGrid : MonoBehaviour
                 hexRenderer.outerSize = outerSize;
                 hexRenderer.innerSize = innerSize;
                 hexRenderer.height = height;
-                hexRenderer.material=(material);
+                hexRenderer.setMaterial(material);
                 hexRenderer.DrawMesh();
+                HexType hextype= hexgen.generator(tile.transform.position);
                 tile.transform.SetParent(transform, true);
 
             }

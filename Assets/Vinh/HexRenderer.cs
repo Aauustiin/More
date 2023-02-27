@@ -30,6 +30,9 @@ public class HexRenderer : MonoBehaviour
     public float height;
 
     public Material material;
+    public void setMaterial(Material material)
+    {
+        this.material = material;}
     private void Awake()
     {
         m_meshFilter = GetComponent<MeshFilter>();
