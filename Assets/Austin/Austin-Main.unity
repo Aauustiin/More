@@ -947,11 +947,14 @@ MonoBehaviour:
   innovationSlider: {fileID: 1845348277}
   marketsSlider: {fileID: 2063309996}
   mainMenu: {fileID: 263319987}
-  _cityPlanner: {fileID: 176555087}
-  _buildingGenerator: {fileID: 856951857}
-  _peopleGenerator: {fileID: 1753923365}
+  cityPlanner: {fileID: 176555087}
+  buildingGenerator: {fileID: 856951857}
+  peopleGenerator: {fileID: 1753923365}
+  speechGenerator: {fileID: 1961664257}
   minBound: {x: -45, y: -25}
   maxBound: {x: 45, y: 25}
+  thoughtBubble: {fileID: 6377670004515062512, guid: 24155bce99e7e3e439611175ac90fd1d, type: 3}
+  mainCamera: {fileID: 963194227}
 --- !u!4 &286494387
 Transform:
   m_ObjectHideFlags: 0
