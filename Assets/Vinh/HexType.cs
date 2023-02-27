@@ -4,15 +4,20 @@ using System.Drawing;
 using UnityEditor;
 using UnityEngine;
 
-public abstract class HexType : MonoBehaviour
+public class HexType : MonoBehaviour
 {
     public Vector2 Coords;
     public string Type;
-    public abstract void GenerateHex();
+    public void GenerateHex()
+    {
+        int i = new int();
+        Debug.Log("implement this");
+    }
 
     void start()
     {
         GenerateHex();
+
     }
 }
 
@@ -21,7 +26,6 @@ public class HexGen : MonoBehaviour
 {
     private HexType hextype;
     private List<int> HexList;
-
     public void hexlist(int Residential, int Industrial, int Commercial, int Infrastructure,
         int Entertainment, int Greenspace, int Nothing)
     {
@@ -43,29 +47,34 @@ public class HexGen : MonoBehaviour
         switch (HexList[HexIndex])
         {
             case 0:
-                // code block
-                break;
+                Residential residential = new Residential();
+                residential.Coords = coords;
+                return residential;
             case 1:
-                // code block
-                break;
+                Industrial industrial = new Industrial();
+                industrial.Coords = coords;
+                return industrial;
             case 2:
-                // code block
-                break;
+                Commercial commercial = new Commercial();
+                commercial.Coords = coords;
+                return commercial;
             case 3:
-                // code block
-                break;
+                Infrastructure infrastructure = new Infrastructure();
+                infrastructure.Coords = coords;
+                return infrastructure;
             case 4:
-                // code block
-                break;
+                Entertainment entertainment = new Entertainment();
+                entertainment.Coords = coords;
+                return entertainment;
             case 5:
-                // code block
-                break;
+                Greenspace greenspace = new Greenspace();
+                greenspace.Coords = coords;
+                return greenspace;
             case 6:
-                // code block
-                break;
-
+                Nothing nothing = new Nothing();
+                nothing.Coords = coords;
+                return nothing;
             default:
-                // code block
                 break;
         }
         
@@ -84,7 +93,7 @@ public class HexGen : MonoBehaviour
     }
 }
 
-public class residential : HexType
+public class Residential : HexType
 {
     public void GenerateHex()
     {
@@ -92,7 +101,7 @@ public class residential : HexType
         Debug.Log("implement this");
     }
 }
-public class industrial : HexType
+public class Industrial : HexType
 {
     public void GenerateHex()
     {

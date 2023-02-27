@@ -14,8 +14,7 @@ public class HexGrid : MonoBehaviour
     public Material material;
 
     [Header("HexGen settings")]
-    private HexGen hexgen;
-
+    public HexGen hexgen;
     public int Residential;
     public int Industrial;
     public int Commercial;
@@ -38,8 +37,7 @@ public class HexGrid : MonoBehaviour
 
     private void LayoutGrid()
     {
-        hexgen.hexlist(Residential, Industrial, Commercial, Infrastructure,
-            Entertainment, Greenspace, Nothing);
+            hexgen.hexlist(Residential, Industrial, Commercial, Infrastructure, Entertainment, Greenspace, Nothing);
         for (int y = 0; y < gridSize.y; y++)
         {
             for (int x = 0; x < gridSize.x; x++)
@@ -54,7 +52,7 @@ public class HexGrid : MonoBehaviour
                 hexRenderer.height = height;
                 hexRenderer.setMaterial(material);
                 hexRenderer.DrawMesh();
-                HexType hextype= hexgen.generator(tile.transform.position);
+                HexType hextype = hexgen.generator(tile.transform.position);
                 tile.transform.SetParent(transform, true);
 
             }
