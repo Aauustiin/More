@@ -37,7 +37,8 @@ public class HexGrid : MonoBehaviour
 
     private void LayoutGrid()
     {
-            hexgen.hexlist(Residential, Industrial, Commercial, Infrastructure, Entertainment, Greenspace, Nothing);
+        hexgen = new HexGen();
+        hexgen.hexlist(Residential, Industrial, Commercial, Infrastructure, Entertainment, Greenspace, Nothing);
         for (int y = 0; y < gridSize.y; y++)
         {
             for (int x = 0; x < gridSize.x; x++)

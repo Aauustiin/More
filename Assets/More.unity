@@ -470,3 +470,11 @@ MonoBehaviour:
   innerSize: 2.8
   height: 1
   material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  hexgen: {fileID: 0}
+  Residential: 1
+  Industrial: 1
+  Commercial: 1
+  Infrastructure: 1
+  Entertainment: 1
+  Greenspace: 1
+  Nothing: 1
