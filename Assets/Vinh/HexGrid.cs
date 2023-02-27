@@ -23,7 +23,7 @@ public class HexGrid : MonoBehaviour
     public int Greenspace;
     public int Nothing;
     
-    private void OnEnable()
+    public void OnDone()
     {
         LayoutGrid();
     }
@@ -54,6 +54,7 @@ public class HexGrid : MonoBehaviour
                 hexRenderer.setMaterial(material);
                 hexRenderer.DrawMesh();
                 HexType hextype = hexgen.generator(tile.transform.position);
+                hextype.GenerateHex(tile.transform.position);
                 tile.transform.SetParent(transform, true);
 
             }

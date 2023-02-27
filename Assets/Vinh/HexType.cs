@@ -2,23 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using UnityEditor;
+using UnityEditor.SceneTemplate;
 using UnityEngine;
 
-public class HexType : MonoBehaviour
+using System;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
+using Vector2 = UnityEngine.Vector2;
+
+public interface HexType
 {
-    public Vector2 Coords;
-    public string Type;
-    public void GenerateHex()
-    {
-        int i = new int();
-        Debug.Log("implement this");
-    }
-
-    void start()
-    {
-        GenerateHex();
-
-    }
+    //public Vector2 Coords;
+    //public string Type;
+    public void GenerateHex(Vector3 Coords);
 }
 
 public class HexGen : MonoBehaviour
@@ -36,43 +35,38 @@ public class HexGen : MonoBehaviour
         HexList.AddRange(listgenerator(Entertainment, 4));
         HexList.AddRange(listgenerator(Greenspace, 5));
         HexList.AddRange(listgenerator(Nothing, 6));
+        
         this.HexList = HexList;
     }
 
     public HexType generator(Vector3 coords)
     {
-
+        Debug.Log("seg");
         var Rnd = new System.Random();
         int HexIndex = Rnd.Next(HexList.Count);
         switch (HexList[HexIndex])
         {
             case 0:
                 Residential residential = new Residential();
-                residential.Coords = coords;
+                Debug.Log("res");
                 return residential;
             case 1:
                 Industrial industrial = new Industrial();
-                industrial.Coords = coords;
                 return industrial;
             case 2:
                 Commercial commercial = new Commercial();
-                commercial.Coords = coords;
                 return commercial;
             case 3:
                 Infrastructure infrastructure = new Infrastructure();
-                infrastructure.Coords = coords;
                 return infrastructure;
             case 4:
                 Entertainment entertainment = new Entertainment();
-                entertainment.Coords = coords;
                 return entertainment;
             case 5:
                 Greenspace greenspace = new Greenspace();
-                greenspace.Coords = coords;
                 return greenspace;
             case 6:
                 Nothing nothing = new Nothing();
-                nothing.Coords = coords;
                 return nothing;
             default:
                 break;
@@ -95,55 +89,78 @@ public class HexGen : MonoBehaviour
 
 public class Residential : HexType
 {
-    public void GenerateHex()
+    public new void GenerateHex(Vector3 Coords)
     {
-        int i = new int();
-        Debug.Log("implement this");
+        BuildingGenerator bGen = GameObject.Find("GameDirector").GetComponent<GameDirector>().buildingGenerator;
+        CityStats stats = GameObject.Find("GameDirector").GetComponent<GameDirector>().s;;
+        GameObject building = bGen.GenerateBuilding(stats, BuildingType.Residential);
+        GameObject.Find("GameDirector").GetComponent<GameDirector>().MakeBuilding(building, Coords);
+        Debug.Log("Residential"+ Coords);
     }
 }
 public class Industrial : HexType
 {
-    public void GenerateHex()
+    public new void GenerateHex(Vector3 Coords)
     {
         int i = 10;
-        Debug.Log("implement this");
+        BuildingGenerator bGen = GameObject.Find("GameDirector").GetComponent<GameDirector>().buildingGenerator;
+        CityStats stats = GameObject.Find("GameDirector").GetComponent<GameDirector>().s;;
+        GameObject building = bGen.GenerateBuilding(stats, BuildingType.Industrial);
+        GameObject.Find("GameDirector").GetComponent<GameDirector>().MakeBuilding(building, Coords);
+        Debug.Log("Industrial"+ Coords);
     }
 }
 public class Commercial : HexType
 {
-    public void GenerateHex()
+    public new void GenerateHex(Vector3 Coords)
     {
         int i = 10;
-        Debug.Log("implement this");
+        BuildingGenerator bGen = GameObject.Find("GameDirector").GetComponent<GameDirector>().buildingGenerator;
+        CityStats stats = GameObject.Find("GameDirector").GetComponent<GameDirector>().s;;
+        GameObject building = bGen.GenerateBuilding(stats, BuildingType.Commercial);
+        GameObject.Find("GameDirector").GetComponent<GameDirector>().MakeBuilding(building, Coords);
+        Debug.Log("Commercial"+ Coords);
     }
 }
 public class Infrastructure : HexType
 {
-    public void GenerateHex()
+    public new void GenerateHex(Vector3 Coords)
     {
         int i = 10;
-        Debug.Log("implement this");
+        BuildingGenerator bGen = GameObject.Find("GameDirector").GetComponent<GameDirector>().buildingGenerator;
+        CityStats stats = GameObject.Find("GameDirector").GetComponent<GameDirector>().s;;
+        GameObject building = bGen.GenerateBuilding(stats, BuildingType.Infastructure);
+        GameObject.Find("GameDirector").GetComponent<GameDirector>().MakeBuilding(building, Coords);
+        Debug.Log("Infrastructure"+ Coords);
     }
 }
 public class Entertainment : HexType
 {
-    public void GenerateHex()
+    public new void GenerateHex(Vector3 Coords)
     {
         int i = 10;
-        Debug.Log("implement this");
+        BuildingGenerator bGen = GameObject.Find("GameDirector").GetComponent<GameDirector>().buildingGenerator;
+        CityStats stats = GameObject.Find("GameDirector").GetComponent<GameDirector>().s;;
+        GameObject building = bGen.GenerateBuilding(stats, BuildingType.Entertainment);
+        GameObject.Find("GameDirector").GetComponent<GameDirector>().MakeBuilding(building, Coords);
+        Debug.Log("Entertainment"+ Coords);
     }
 }
 public class Greenspace : HexType
 {
-    public void GenerateHex()
+    public new void GenerateHex(Vector3 Coords)
     {
         int i = 10;
-        Debug.Log("implement this");
+        BuildingGenerator bGen = GameObject.Find("GameDirector").GetComponent<GameDirector>().buildingGenerator;
+        CityStats stats = GameObject.Find("GameDirector").GetComponent<GameDirector>().s;;
+        GameObject building = bGen.GenerateBuilding(stats, BuildingType.Residential);
+        GameObject.Find("GameDirector").GetComponent<GameDirector>().MakeBuilding(building, Coords);
+        Debug.Log("green");
     }
 }
 public class Nothing : HexType
 {
-    public void GenerateHex()
+    public new void GenerateHex(Vector3 Coords)
     {
         int i = 10;
         Debug.Log("implement this");

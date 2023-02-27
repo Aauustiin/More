@@ -1017,6 +1017,12 @@ MonoBehaviour:
   maxBound: {x: 45, y: 25}
   thoughtBubble: {fileID: 6377670004515062512, guid: 24155bce99e7e3e439611175ac90fd1d, type: 3}
   mainCamera: {fileID: 963194227}
+  s:
+    Globalism: 0
+    Urbanism: 0
+    Statism: 0
+    Innovation: 0
+    Markets: 0
 --- !u!4 &286494387
 Transform:
   m_ObjectHideFlags: 0
@@ -2725,6 +2731,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229531500}
   m_CullTransparentMesh: 1
+--- !u!1 &1269722961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1269722963}
+  - component: {fileID: 1269722962}
+  m_Layer: 0
+  m_Name: Hex
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1269722962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269722961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d260ecb144660ac469c0c672d0483b9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridSize: {x: 10, y: 10}
+  outerSize: 10
+  innerSize: 0
+  height: 0
+  material: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  hexgen: {fileID: 0}
+  Residential: 1
+  Industrial: 1
+  Commercial: 1
+  Infrastructure: 1
+  Entertainment: 1
+  Greenspace: 1
+  Nothing: 1
+--- !u!4 &1269722963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269722961}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1271027842
 GameObject:
   m_ObjectHideFlags: 0
@@ -3413,7 +3476,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622429827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4143,6 +4206,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1269722962}
+        m_TargetAssemblyTypeName: HexGrid, Assembly-CSharp
+        m_MethodName: OnDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1775475287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4662,9 +4737,9 @@ MonoBehaviour:
   - Balenciaga
   - 'Nike '
   positiveAdj:
-  - is cool
-  - is certi
-  - 'is great '
+  - ' is cool'
+  - ' is certi'
+  - ' is great '
 --- !u!4 &1961664258
 Transform:
   m_ObjectHideFlags: 0
