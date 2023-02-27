@@ -68,9 +68,15 @@ public class BuildingGenerator : MonoBehaviour, IBuildingGenerator
 
     public GameObject findClosestBuilding(CityStats stats, CityStats[] anyBuildingsStats, GameObject[] AnyBuildings )
     {
+        /*
         double bestDiff = 5;
-        GameObject closestBuilding = null;
+        */
+        GameObject chosenBuilding = null;
         int iteration = 0;
+        double diffSum = 0;
+        // double normalisedDiff;
+        var pairList = new List<KeyValuePair<GameObject, double>>();
+        
         foreach (CityStats buildingStats in anyBuildingsStats ) {
             double globalismDiff = System.Math.Abs(stats.Globalism - buildingStats.Globalism);
             double urbanismDiff = System.Math.Abs(stats.Urbanism - buildingStats.Urbanism);
@@ -78,19 +84,40 @@ public class BuildingGenerator : MonoBehaviour, IBuildingGenerator
             double innovationDiff = System.Math.Abs(stats.Innovation - buildingStats.Innovation);
             double marketsDiff = System.Math.Abs(stats.Markets - buildingStats.Markets);
 
-            double totalDiff = globalismDiff + urbanismDiff + statismDiff + innovationDiff + marketsDiff;
+            double totalStatDiff = System.Math.Sqrt(globalismDiff*globalismDiff + urbanismDiff*urbanismDiff + statismDiff*statismDiff + innovationDiff*innovationDiff + marketsDiff*marketsDiff);
             
-            if (totalDiff < bestDiff)
-            {
-                bestDiff = totalDiff;
-                closestBuilding = AnyBuildings[iteration];
-                // implement something which then saves the corresponding building from AnyBuildings at the correct position.
-            }
+            pairList.Add(new KeyValuePair<GameObject, double>(AnyBuildings[iteration], totalStatDiff)); // the list of pairs of the building and the totalStatDiff
+            diffSum += totalStatDiff;
 
             iteration++;
         }
+        // normalise them.
+        var normalisedPairList = new List<KeyValuePair<GameObject, double>>();
+        foreach (KeyValuePair<GameObject, double> pair in pairList)
+        {
+            normalisedPairList.Add( new KeyValuePair<GameObject, double>(pair.Key,pair.Value / diffSum)) ;
+        }
+        // sort in ascending order.
+        normalisedPairList.Sort((x, y) => x.Value.CompareTo(y.Value));
 
-        return closestBuilding;
+        //probabilities
+        var rnd = new System.Random();
+        double randomValue = rnd.NextDouble();
+        
+        //chooses the building.
+        foreach (KeyValuePair<GameObject, double> pair in normalisedPairList)
+        {
+            if (randomValue < pair.Value)
+            {
+                chosenBuilding = pair.Key;
+                
+            }
+            else
+            {
+                randomValue -= pair.Value;
+            }
+        }
+        return chosenBuilding;
 
     }
     
